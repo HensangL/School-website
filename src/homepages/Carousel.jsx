@@ -22,7 +22,7 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto">
+    <div className="relative w-full max-w-full mx-auto">
       {/* Image Display */}
       <div className="overflow-hidden rounded-2xl shadow-lg h-[450px] bg-gray-100 flex items-center justify-center">
         <img

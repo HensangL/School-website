@@ -46,9 +46,9 @@ function TeacherPage() {
 
         {/* Teachers Table - Always Visible */}
         <div className="overflow-x-auto bg-white rounded-lg shadow">
-          <table className="min-w-full border">
+          <table className="min-w-full bg-amber-100 border">
             <thead>
-              <tr className="bg-gray-100">
+              <tr className="bg-gray-400">
                 <th className="py-3 px-4 border text-left">Name</th>
                 <th className="py-3 px-4 border text-left">Subject</th>
                 <th className="py-3 px-4 border text-left">Email</th>

@@ -1,0 +1,23 @@
+import React from 'react'
+import logo from '../image/target.png'
+import { Link } from 'react-router'
+function Studentsidebar() {
+  return (
+    <div>
+        <nav className='ml-5 mt-6 rounded-2xl flex flex-col  bg-gradient-to-b from-[#925FE2] to-[#3c0f89] w-[256px] h-[1024px] fixed left-0 top-0  p-4'>
+            <ul className='flex flex-col gap-3 '>
+                <img src={logo} className='w-30' />
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/sdashboard'>Dashboard</Link></li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/payment'>Payment info</Link></li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/attendancestudent'>Attendance</Link></li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'>Courses</li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'>Result</li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'>Notice</li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'>Schedule</li>
+                </ul>
+        </nav>
+    </div>
+  )
+}
+
+export default Studentsidebar

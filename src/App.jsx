@@ -17,6 +17,10 @@ import TeacherPage from './pages/TeacherPage';
 import AttendancePage from './pages/AttendancePage';
 import GradesPage from './pages/GradesPage';
 import AdmissionPage from './pages/AdmissionPage';
+import Studentdashboard from './dashboard/Studentdashboard'
+import Sdashboard from './Studentpages/Sdashboard'
+import Paymentinfo from './Studentpages/Paymentinfo'
+import Attencance from './Studentpages/Attendance'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,12 +41,18 @@ function App() {
         <Route path='/student' element={<Student/>}/>
         <Route path='/teacher' element={<Teacher/>}/>
         <Route path='/admindashboard' element={<Admindash/>}/>
+        <Route path ='/studentdashboard' element={<Studentdashboard/>}/>
         <Route path='/admindash-only' element={<DashboardOnlyLayout><Admindash /></DashboardOnlyLayout>} />
         <Route path='/studentpage' element={<StudentPage />} />
         <Route path='/teacherpage' element={<TeacherPage />} />
         <Route path='/attendance' element={<AttendancePage />} />
         <Route path='/grades' element={<GradesPage />} />
         <Route path='/admission' element={<AdmissionPage />} />
+        <Route path='/sdashboard' element={<Sdashboard/>}/>
+        <Route path='/payment' element={<Paymentinfo/>}/>
+        <Route path='/attendancestudent' element={<Attencance/>}/>
+
+
       </Routes>
 
     </div>

@@ -1,11 +1,20 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar';
+import Card from '../components/Card';
 
 function AdmissionPage() {
   return (
     <div>
-      <h1>Admission Page</h1>
-      <p>This is the admission page.</p>
+    <Sidebar/>
+  <div className='ml-65'>
+    <h1 className='text-4xl text-blue-700 ml-120'>Admisson Page</h1>
+    <div className='flex gap-20 ml-80'>
+    <Card value="1256" label="Total student admitted" />
+    <Card value="500" label="Total stuednt Passedout" />
+
     </div>
+  </div>
+  </div>
   );
 }
 

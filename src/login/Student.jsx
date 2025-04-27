@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Studentdashboard from '../dashboard/Studentdashboard'
 function Student() {
   return (
     <div className='main'>
@@ -14,6 +14,8 @@ function Student() {
       </div>          <a href="">Forgot password
         </a>
         <button>Submit</button>
+        <a href="/studentdashboard" target='_blank'>Student Dashboard</a>
+
       </form>
       </div>
     </div>
