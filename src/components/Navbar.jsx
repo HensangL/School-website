@@ -3,13 +3,27 @@ import { Link } from 'react-router'
 
 const Navbar = () => {
   const [showLoginDropdown, setShowLoginDropdown] = useState(false)
+  const [showAbout, setShowAbout] = useState(false)
+
 
   return (
     <div className='navbar-container'>
       <nav className='navbar'>
         <ul className="nav-list">
           <li><Link to='/' >Home</Link></li>
-          <li><Link to='/about'>About</Link></li>
+          <li className="dropdown-parent" 
+          onMouseEnter={() =>setShowAbout(true)}
+          onMouseLeave={() =>setShowAbout(false)}><Link to='/about'>About
+          {showAbout && (
+            <div className="login-dropdown">
+                <Link to='/principal' >Principal's message</Link>
+                <a href="">Chairmen's message</a>
+              <a href="">Team</a>
+            </div>
+          )
+        }
+          
+          </Link></li>
           <li><Link to='/contact'>Contact</Link></li>
           <li className="dropdown-parent"
               onMouseEnter={() => setShowLoginDropdown(true)}

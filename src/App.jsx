@@ -21,6 +21,7 @@ import Studentdashboard from './dashboard/Studentdashboard'
 import Sdashboard from './Studentpages/Sdashboard'
 import Paymentinfo from './Studentpages/Paymentinfo'
 import Attencance from './Studentpages/Attendance'
+import Principal from './aboutpage/Principal'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/principal' element={<Principal/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/admin' element={<Admin/>}/>

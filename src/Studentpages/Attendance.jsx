@@ -32,7 +32,7 @@ function Registration() {
         <div className='ml-75 mt-10 '>
           <p className='text-4xl font-semibold'>Todays time table</p>
           <div className="overflow-x-auto">
-  <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+  <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-md mt-8">
     <thead className="bg-[#925FE2] text-white">
       <tr>
         <th className="py-3 px-4 text-left font-semibold">Time</th>
@@ -42,7 +42,7 @@ function Registration() {
       </tr>
     </thead>
     <tbody className="divide-y divide-gray-200">
-      <tr className="hover:bg-gray-50 transition-colors">
+      <tr className="hover:bg-gray-50 transition-colors ">
         <td className="py-3 px-4 font-medium">10:00 AM</td>
         <td className="py-3 px-4">1</td>
         <td className="py-3 px-4">Physics</td>

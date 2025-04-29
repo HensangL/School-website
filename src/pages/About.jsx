@@ -1,56 +1,129 @@
-import React from 'react';
-import bg from '../image/bg.jpeg';
-import hands from '../image/hands.png';
-import target from '../image/target.png';
-import task from '../image/task.png';
-
-const About = () => {
+import React from 'react'
+import background from '../image/bg.jpeg'
+import { Link } from 'react-router'
+function About() {
   return (
-    <div
-      className="min-h-screen bg-cover bg-center flex flex-col items-center text-white px-4 py-10"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      {/* Main content box */}
-      <div className="relative p-8 rounded-xl max-w-5xl w-full text-center overflow-hidden">
-        {/* Gradient background with 20% opacity */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#410445] via-[#FF2DF1] to-[#F6DC43] opacity-50 rounded-xl z-0" />
 
-        {/* Foreground content */}
-        <div className="relative z-10">
-          <h1 className="text-4xl font-bold mb-6">About Our School</h1>
-          <p className="mb-8 text-lg">
-            Welcome to our school – a place where knowledge, creativity, and discipline come together to shape future leaders. Our institution is committed to providing holistic education that empowers students academically, socially, and emotionally.
-          </p>
+    <div>
+     
+<div className="relative w-full overflow-hidden bg-gray-50">
+  {/* Hero Section */}
+  <div className="relative h-[500px] md:h-[600px]">
+    <img 
+      src={background} 
+      alt="Hensang School Campus" 
+      className="w-full h-full object-cover object-center opacity-90"
+    />
+    <div className="absolute inset-0 bg-blue-900/50"></div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <img src={hands} alt="Mission" className="h-24 w-24 mb-4" />
-              <h2 className="text-xl font-semibold">Our Mission</h2>
-              <p className="text-sm mt-2">
-                To provide quality education in a nurturing environment that inspires lifelong learning and personal growth.
-              </p>
-            </div>
+    <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 sm:px-10 lg:px-20 text-white">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+        Welcome to Hensang School
+      </h1>
+      <p className="text-lg md:text-xl max-w-3xl mb-10 leading-relaxed">
+        Since 1995, we've nurtured students to excel academically, socially, and emotionally through innovative education.
+      </p>
+    </div>
+  </div>
 
-            <div className="flex flex-col items-center">
-              <img src={target} alt="Vision" className="h-24 w-24 mb-4" />
-              <h2 className="text-xl font-semibold">Our Vision</h2>
-              <p className="text-sm mt-2">
-                To be a center of academic excellence, preparing students for the challenges of a dynamic world.
-              </p>
-            </div>
+  {/* Main Content Container */}
+  <div className="max-w-6xl mx-auto px-6 py-16">
 
-            <div className="flex flex-col items-center">
-              <img src={task} alt="Goals" className="h-24 w-24 mb-4" />
-              <h2 className="text-xl font-semibold">Our Goals</h2>
-              <p className="text-sm mt-2">
-                To foster critical thinking, ethical values, and a passion for learning through innovative teaching methods.
-              </p>
-            </div>
+    {/* Mission & Vision */}
+    <div className="grid md:grid-cols-2 gap-12 mb-20">
+      <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-500">
+        <h2 className="text-3xl font-bold mb-4 text-blue-800">🌟 Our Mission</h2>
+        <p className="text-gray-700 text-lg">
+          To empower students with knowledge, skills, and values to become responsible global citizens and lifelong learners.
+        </p>
+      </div>
+      <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-green-500">
+        <h2 className="text-3xl font-bold mb-4 text-green-800">🔭 Our Vision</h2>
+        <p className="text-gray-700 text-lg">
+          To be a premier institution cultivating innovation, critical thinking, and holistic development.
+        </p>
+      </div>
+    </div>
+
+    {/* Core Values */}
+    <div className="mb-20 text-center">
+      <h2 className="text-3xl font-bold mb-12 text-gray-800">Our Core Values</h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {[
+          ["⭐", "Excellence", "Striving for academic and personal growth"],
+          ["🤝", "Integrity", "Upholding honesty and ethical behavior"],
+          ["💡", "Innovation", "Encouraging creative approaches"],
+          ["👨‍👩‍👧‍👦", "Community", "Building strong relationships"],
+          ["🌍", "Diversity", "Celebrating differences and inclusion"]
+        ].map(([icon, title, desc]) => (
+          <div key={title} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <div className="text-4xl mb-3">{icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600">{desc}</p>
           </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Legacy of Excellence */}
+    <div className="mb-20">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">A Legacy of Excellence</h2>
+      <div className="bg-blue-50 p-8 rounded-xl">
+        <p className="text-lg mb-8 text-center max-w-4xl mx-auto">
+          Founded in 1995, Hensang School has grown into a premier educational institution known for:
+        </p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            ["🏆", "Academic Excellence", "Consistently high performance in exams"],
+            ["👩‍🏫", "Experienced Faculty", "Dedicated and qualified teachers"],
+            ["🎨", "Holistic Development", "Balance of academics, sports and arts"],
+            ["🏛️", "Modern Facilities", "Well-equipped classrooms and labs"]
+          ].map(([icon, title, desc]) => (
+            <div key={title} className="flex items-start">
+              <div className="text-3xl mr-4 mt-1">{icon}</div>
+              <div>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="text-gray-600">{desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  );
-};
 
-export default About;
+    {/* Why Choose Us */}
+    <div className="mb-20">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Why Choose Hensang School?</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          ["📚", "Student-Centered Learning", "Personalized attention and innovative methods"],
+          ["⚽", "Extracurricular Opportunities", "Clubs, sports, and leadership programs"],
+          ["🛡️", "Safe Environment", "Caring and disciplined atmosphere"],
+          ["👪", "Community Engagement", "Strong parent collaboration"]
+        ].map(([icon, title, desc]) => (
+          <div key={title} className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-blue-300">
+            <div className="text-3xl mb-3">{icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* CTA Section */}
+    <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-12 text-center text-white">
+      <h2 className="text-3xl font-bold mb-4">Join Our Journey</h2>
+      <p className="text-xl mb-8 max-w-2xl mx-auto">
+        Discover how we shape the leaders of tomorrow. Be part of our vibrant learning community.
+      </p>
+      <button className="bg-white text-blue-800 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+        <Link to='/contact'>Contact Us Today</Link>
+        
+      </button>
+    </div>
+  </div>
+</div></div>
+  )
+}
+
+export default About
