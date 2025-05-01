@@ -17,8 +17,9 @@ const Navbar = () => {
           {showAbout && (
             <div className="login-dropdown">
                 <Link to='/principal' >Principal's message</Link>
-                <a href="">Chairmen's message</a>
-              <a href="">Team</a>
+                <Link to='/chairman'>Chairmen's message</Link>
+                <Link to='/team'>Meet the teachers</Link>
+
             </div>
           )
         }
