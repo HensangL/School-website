@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import React from 'react'
 import './App.css'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route,Routes,useLocation } from 'react-router'
+
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
@@ -24,6 +25,7 @@ import Attencance from './Studentpages/Attendance'
 import Principal from './aboutpage/Principal'
 import Chairman from './aboutpage/Chairman'
 import Team from './aboutpage/Team'
+import Courses from './Studentpages/Courses'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -59,6 +61,8 @@ function App() {
         <Route path='/sdashboard' element={<Sdashboard/>}/>
         <Route path='/payment' element={<Paymentinfo/>}/>
         <Route path='/attendancestudent' element={<Attencance/>}/>
+        <Route path='/courses' element={<Courses/>}/>
+
 
 
       </Routes>
