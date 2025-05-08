@@ -1,6 +1,7 @@
 import React from 'react'
 import background from '../image/bg.jpeg'
 import { Link } from 'react-router'
+import Footer from '../homepages/Footer'
 function About() {
   return (
 
@@ -14,7 +15,7 @@ function About() {
       alt="Hensang School Campus" 
       className="w-full h-full object-cover object-center opacity-90"
     />
-    <div className="absolute inset-0 bg-blue-900/50"></div>
+    <div className="absolute inset-0 bg-fuchsia-400/13"></div>
 
     <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 sm:px-10 lg:px-20 text-white">
       <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
@@ -101,7 +102,7 @@ function About() {
           ["🛡️", "Safe Environment", "Caring and disciplined atmosphere"],
           ["👪", "Community Engagement", "Strong parent collaboration"]
         ].map(([icon, title, desc]) => (
-          <div key={title} className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-blue-300">
+          <div key={title} className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-b-fuchsia-500">
             <div className="text-3xl mb-3">{icon}</div>
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600">{desc}</p>
@@ -111,18 +112,10 @@ function About() {
     </div>
 
     {/* CTA Section */}
-    <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-12 text-center text-white">
-      <h2 className="text-3xl font-bold mb-4">Join Our Journey</h2>
-      <p className="text-xl mb-8 max-w-2xl mx-auto">
-        Discover how we shape the leaders of tomorrow. Be part of our vibrant learning community.
-      </p>
-      <button className="bg-white text-blue-800 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
-        <Link to='/contact'>Contact Us Today</Link>
-        
-      </button>
-    </div>
   </div>
-</div></div>
+</div>
+<Footer/>
+</div>
   )
 }
 

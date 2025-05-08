@@ -27,6 +27,39 @@ function Courses() {
 
 
         </div>
+        <div>
+          <h1 className='text-center mt-10 text-2xl font-bold text-blue-800'>Grab your Syllabus for your subjects.</h1>
+          <div className='ml-100 mt-9'>
+            <table className=''> <tr>
+                <td className='  rounded-2xl bg-amber-200 p-2'> Subjects
+            </td>
+            <td className=' p-2 w-[200px]'> Syllabus
+            </td>
+              </tr>
+              <tr>
+              <td className=' p-2'> Physics
+              </td>
+              <td className=' p-2 w-[200px]'> Syllabus
+            </td>
+              </tr>
+              <tr>
+              <td className=' p-2'> Chemistry 
+              </td>
+              <td className=' p-2 w-[200px]'> Syllabus
+            </td>
+              </tr> <tr>
+              <td className=' p-2'> Biology
+              </td>
+              <td className=' p-2 w-[200px]'> Syllabus
+            </td>
+              </tr>
+
+            </table>
+           
+          </div>
+          
+
+        </div>
     </div>
   )
 }

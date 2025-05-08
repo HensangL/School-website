@@ -11,7 +11,8 @@ function Teacher() {
         <div className="remember-me">
         <input type="checkbox" id="remember" />
         <label htmlFor="remember">Remember me</label>
-      </div>          <a href="">Forgot password
+      </div>              <a href="/teacherdash">Teacherdashboard</a>
+      <a href="">Forgot password
         </a>
         <button>Submit</button>
       </form>
