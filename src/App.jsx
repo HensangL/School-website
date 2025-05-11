@@ -29,9 +29,9 @@ import Courses from './Studentpages/Courses'
 import Assignments from './pages/Assignments'
 import Teacherdash from './dashboard/Teacherdash'
 import Maindashboard from './teacherdashboard/Maindashboard'
+import Classmycourse from './teacherdashboard/Classmycourse'
 
 function App() {
-  const [count, setCount] = useState(0)
   const location = useLocation();
   const showNavbar = location.pathname === '/' || location.pathname === '/about' || location.pathname === '/contact';
 
@@ -68,6 +68,8 @@ function App() {
         <Route path='/assignments' element={<Assignments/>}/>
         <Route path='/teacherdash' element={<Teacherdash/>}/>
         <Route path='/maindashboard' element={<Maindashboard/>}/>
+                <Route path='/classmycourse' element={<Classmycourse/>}/>
+
 
 
 

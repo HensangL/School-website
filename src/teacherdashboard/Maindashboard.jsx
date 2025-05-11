@@ -6,7 +6,6 @@ function Maindashboard() {
   return (
     <div className="flex">
       <Teachersidebar />
-
       <div className="ml-96 flex-1 p-8 space-y-8">
         {/* Welcome Card */}
         <div className='bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300'>
