@@ -16,7 +16,7 @@ function Sidebar() {
       <li className="group">
         <Link to="/teacherpage" className=" text-white flex items-center p-3 rounded-lg font-medium text-white-800 hover:bg-amber-500 hover:text-white-900 transition-all duration-200 group-hover:translate-x-1">
           <span className="mr-3">👨‍🎓</span>
-          Teacher
+          Staffs
         </Link>
       </li><li className="group">
         <Link to="/attendance" className=" text-white flex items-center p-3 rounded-lg font-medium text-white-800 hover:bg-amber-500 hover:text-white-900 transition-all duration-200 group-hover:translate-x-1">

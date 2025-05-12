@@ -4,6 +4,8 @@ import Sidebar from '../components/Sidebar';
 function TeacherPage() {
   const [showTeacherForm, setShowTeacherForm] = useState(false);
   const [teachers, setTeachers] = useState([]);
+  const [editingTeacherId, setEditingTeacherId] = useState(null);
+  const [filter, setFilter] = useState('all'); // NEW: filter state
   const [formData, setFormData] = useState({
     id: Date.now(),
     name: '',
@@ -22,8 +24,18 @@ function TeacherPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTeachers([...teachers, { ...formData, id: Date.now() }]);
+    if (editingTeacherId) {
+      // Update existing teacher
+      setTeachers(teachers.map(teacher =>
+        teacher.id === editingTeacherId ? { ...formData, id: editingTeacherId } : teacher
+      ));
+    } else {
+      // Add new teacher
+      setTeachers([...teachers, { ...formData, id: Date.now() }]);
+    }
+
     setFormData({ id: Date.now(), name: '', subject: '', email: '', phone: '' });
+    setEditingTeacherId(null);
     setShowTeacherForm(false);
   };
 
@@ -31,20 +43,57 @@ function TeacherPage() {
     setTeachers(teachers.filter(teacher => teacher.id !== id));
   };
 
+  const editTeacher = (teacher) => {
+    setFormData(teacher);
+    setEditingTeacherId(teacher.id);
+    setShowTeacherForm(true);
+  };
+
+  // NEW: Filtered teachers list based on selected filter
+  const filteredTeachers = teachers.filter((teacher) => {
+    if (filter === 'all') return true;
+    if (filter === 'teacher') return teacher.subject !== 'Support staff';
+    if (filter === 'support') return teacher.subject === 'Support staff';
+    return true;
+  });
+
   return (
     <div className="flex">
       <Sidebar />
       <div className="ml-64 p-6 w-full">
-        <h1 className="text-2xl font-bold mb-6">Teacher Management</h1>
-        
-        <button
-          onClick={() => setShowTeacherForm(true)}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition mb-6"
-        >
-          Add Teacher
-        </button>
+        <h1 className="text-2xl font-bold mb-6">Staff Management</h1>
+        <div className='flex gap-4 flex-wrap mb-6'>
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-4 py-2 rounded transition ${filter === 'all' ? 'bg-blue-700 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+          >
+            All Staffs
+          </button>
+          <button
+            onClick={() => setFilter('teacher')}
+            className={`px-4 py-2 rounded transition ${filter === 'teacher' ? 'bg-blue-700 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+          >
+            Teacher
+          </button>
+          <button
+            onClick={() => setFilter('support')}
+            className={`px-4 py-2 rounded transition ${filter === 'support' ? 'bg-blue-700 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+          >
+            Support staff
+          </button>
+          <button
+            onClick={() => { 
+              setShowTeacherForm(true); 
+              setEditingTeacherId(null); 
+              setFormData({ id: Date.now(), name: '', subject: '', email: '', phone: '' }); 
+            }}
+            className="ml-auto px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            Add staff
+          </button>
+        </div>
 
-        {/* Teachers Table - Always Visible */}
+        {/* Teachers Table */}
         <div className="overflow-x-auto bg-white rounded-lg shadow">
           <table className="min-w-full bg-amber-100 border">
             <thead>
@@ -57,9 +106,9 @@ function TeacherPage() {
               </tr>
             </thead>
             <tbody>
-              {teachers.length > 0 ? (
-                teachers.map((teacher) => (
-                  <tr key={teacher.id} className="hover:bg-gray-50">
+              {filteredTeachers.length > 0 ? (
+                filteredTeachers.map((teacher) => (
+                  <tr key={teacher.id}>
                     <td className="py-3 px-4 border">{teacher.name}</td>
                     <td className="py-3 px-4 border">{teacher.subject}</td>
                     <td className="py-3 px-4 border">{teacher.email}</td>
@@ -71,16 +120,19 @@ function TeacherPage() {
                       >
                         Remove
                       </button>
+                      <button
+                        onClick={() => editTeacher(teacher)}
+                        className="px-3 ml-4 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition"
+                      >
+                        Update
+                      </button>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td 
-                    colSpan="5" 
-                    className="py-4 px-4 border text-center text-gray-500"
-                  >
-                    No teachers added yet. Click "Add Teacher" to get started.
+                  <td colSpan="5" className="py-4 px-4 border text-center text-gray-500">
+                    No staff found for this category.
                   </td>
                 </tr>
               )}
@@ -93,10 +145,10 @@ function TeacherPage() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-xl">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">Add New Teacher</h2>
-                <button 
-                  onClick={() => setShowTeacherForm(false)}
-                  className="text-gray-500 hover:text-gray-700"
+                <h2 className="text-xl font-bold">{editingTeacherId ? 'Update Staff' : 'Add New Staff'}</h2>
+                <button
+                  onClick={() => { setShowTeacherForm(false); setEditingTeacherId(null); }}
+                  className="text-gray-500 hover:text-gray-700 cursor-pointer"
                 >
                   ✕
                 </button>
@@ -131,6 +183,7 @@ function TeacherPage() {
                     <option value="English">English</option>
                     <option value="Chemistry">Chemistry</option>
                     <option value="Nepali">Nepali</option>
+                    <option value="Support staff">Support staff</option>
                   </select>
                 </div>
                 <div className="mb-4">
@@ -159,7 +212,7 @@ function TeacherPage() {
                 <div className="flex justify-end space-x-3 pt-2">
                   <button
                     type="button"
-                    onClick={() => setShowTeacherForm(false)}
+                    onClick={() => { setShowTeacherForm(false); setEditingTeacherId(null); }}
                     className="px-4 py-2 text-gray-600 hover:text-gray-800 transition"
                   >
                     Cancel
@@ -168,13 +221,14 @@ function TeacherPage() {
                     type="submit"
                     className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                   >
-                    Save Teacher
+                    {editingTeacherId ? 'Update Staff' : 'Save Staff'}
                   </button>
                 </div>
               </form>
             </div>
           </div>
         )}
+
       </div>
     </div>
   );
