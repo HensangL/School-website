@@ -9,7 +9,8 @@ function Teachersidebar() {
                 <img src={logo} className='w-30' />
                 <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/maindashboard'>Dashboard</Link></li>
                 <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/classmycourse'>Class/Mycourses</Link></li>
-                
+                                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/teacherattendance'>Attendance</Link></li>
+
                 
                 </ul>
         </nav>
