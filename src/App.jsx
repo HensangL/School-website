@@ -31,6 +31,7 @@ import Teacherdash from './dashboard/Teacherdash'
 import Maindashboard from './teacherdashboard/Maindashboard'
 import Classmycourse from './teacherdashboard/Classmycourse'
 import Teacherattendance from './teacherdashboard/Teacherattendance'
+import Materials from './teacherdashboard/Materials'
 
 function App() {
   const location = useLocation();
@@ -71,6 +72,8 @@ function App() {
         <Route path='/maindashboard' element={<Maindashboard/>}/>
                 <Route path='/classmycourse' element={<Classmycourse/>}/>
                 <Route path='/teacherattendance' element={<Teacherattendance/>}/>
+<Route path='/material' element={<Materials/>}/>
+
 
 
 
