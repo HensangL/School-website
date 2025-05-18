@@ -1,34 +1,68 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Admin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
-  
-  const handleNavigate = () => {
-    navigate('/admindash-only');
-  }
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/V1/admin/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      console.log(response.data);
+
+      if (response.data.status === "Success") {
+        console.log("I am here");
+        navigate("/admindash-only");
+      }
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+      // Optionally show error to user
+    }
+  };
 
   return (
-    <div className='main'>
-      <div className='form-container'>
+    <div className="main">
+      <div className="form-container">
         <h1>Login</h1>
         <form>
-          Username <input type="text" placeholder='Enter username' />
-          Password <input type="text" placeholder='********' />
-          
+          <label htmlFor="username">Email</label>
+          <input
+            type="text"
+            id="username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <div className="remember-me">
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me</label>
           </div>
-          
           <a href="">Forgot password</a>
-          
-          <button type="button" onClick={handleNavigate}>Open Admin Dashboard</button>
-
+          <button type="button" onClick={handleSubmit}>
+            Open Admin Dashboard
+          </button>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
 export default Admin;
