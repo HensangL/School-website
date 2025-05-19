@@ -21,7 +21,6 @@ function Admin() {
       console.log(response.data);
 
       if (response.data.status === "Success") {
-        console.log("I am here");
         navigate("/admindash-only");
       }
     } catch (error) {
