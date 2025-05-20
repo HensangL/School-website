@@ -18,8 +18,6 @@ function Admin() {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.status === "Success") {
         navigate("/admindash-only");
       }
