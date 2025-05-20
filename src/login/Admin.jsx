@@ -5,20 +5,18 @@ import { useNavigate } from "react-router-dom";
 function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/V1/admin/login",
-        {
-          email,
-          password,
-        },
-        { withCredentials: true } //THIS WILL INCLUDE THE COOKIES OR OTHER SENT BY THE API
-      );
-
+      const response = await axios({
+        method: "post",
+        url: "http://127.0.0.1:8000/api/V1/admin/login",
+        data: { email, password },
+        ...(rememberMe && { withCredentials: true }),
+      });
       if (response.data.status === "Success") {
         navigate("/admindash-only");
       }
@@ -50,7 +48,14 @@ function Admin() {
             required
           />
           <div className="remember-me">
-            <input type="checkbox" id="remember" />
+            <input
+              type="checkbox"
+              id="remember"
+              checked={rememberMe}
+              onChange={() => {
+                setRememberMe(!rememberMe);
+              }}
+            />
             <label htmlFor="remember">Remember me</label>
           </div>
           <a href="">Forgot password</a>
