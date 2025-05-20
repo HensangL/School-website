@@ -15,7 +15,8 @@ function Admin() {
         {
           email,
           password,
-        }
+        },
+        { withCredentials: true } //THIS WILL INCLUDE THE COOKIES OR OTHER SENT BY THE API
       );
 
       if (response.data.status === "Success") {
