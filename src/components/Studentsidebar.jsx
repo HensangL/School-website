@@ -12,6 +12,7 @@ function Studentsidebar() {
                 <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/attendancestudent'>Attendance</Link></li>
                 <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/courses'>Courses</Link></li>
                 <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/assignments'>Assignments</Link></li>
+                <li className='px-4 p-4 hover:bg-[#3C0Fa1] rounded-2xl text-white font-semibold'><Link to='/profile'>Profile</Link></li>
                 
                 </ul>
         </nav>
