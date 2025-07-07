@@ -1,22 +1,28 @@
-import React from 'react'
-import logo from '../image/target.png'
+import React from 'react';
+import logo from '../image/target.png';
+
 function Intro() {
   return (
-    <div className='items-center '>
-        <p className='text-5xl text-center font-extrabold text-purple-600'> Introduction</p>
-        <div className='flex gap-0'>
-        <p className='mx-auto text-[#393E46] p-4 py-10 ml-100 text-center mt-10 border-l-4 border-purple-300 rounded-3xl '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sit quasi cumque itaque ipsa a adipisci eum doloremque modi quis deserunt, quas harum autem fugiat laboriosam facere laborum provident quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat perferendis minus dignissimos esse, molestiae corporis accusamus maxime impedit repellendus architecto modi sequi voluptate magnam corrupti excepturi maiores quis sapiente eaque.</p> 
-        <img src={logo} className='transition duration-300 transform hover:scale-105
- w-48 h-48 mr-40' />
-        </div>
-        <div className='flex ml-80 mt-15 gap-60 text-2xl text-fuchsia-800 font-light'>
-            <p>1000+ Students</p>
-            <p>100% Excellence</p>
-            <p>100% Service</p>
+    <div className='items-center px-4 sm:px-6 md:px-12'>
+      <p className='text-4xl sm:text-5xl text-center font-extrabold text-purple-600 mt-10'>Introduction</p>
 
-        </div>
+      <div className='flex flex-col lg:flex-row items-center justify-center mt-10 gap-6'>
+        <p className='text-[#393E46] p-6 text-center border-l-4 border-purple-300 rounded-3xl text-base sm:text-lg leading-relaxed max-w-3xl'>
+          Our school is committed to delivering quality education through a balanced blend of academic excellence, extracurricular engagement, and character development. We create an inclusive learning environment where students are encouraged to grow intellectually, socially, and emotionally—preparing them to thrive in a dynamic global society.
+        </p> 
+        <img
+          src={logo}
+          className='transition duration-300 transform hover:scale-105 w-40 h-40 sm:w-48 sm:h-48 lg:mr-20'
+        />
+      </div>
+
+      <div className='flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-20 text-xl sm:text-2xl text-fuchsia-800 font-light mt-12'>
+        <p>1000+ Students</p>
+        <p>100% Excellence</p>
+        <p>100% Service</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Intro
+export default Intro;
