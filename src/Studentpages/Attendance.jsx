@@ -8,7 +8,7 @@ import physics from '../image/atom.png'
 
 function Registration() {
   return (
-    <div>
+    <div >
         <Studentsidebar/>
         <div>
 

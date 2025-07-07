@@ -30,7 +30,7 @@ function Teacherattendance() {
     <div className="flex min-h-screen bg-gray-100">
       <Teachersidebar />
 
-      <div className="flex-1 flex flex-col items-center px-4 py-10">
+      <div className="flex-1 flex ml-20 flex-col items-center px-4 py-10">
         <div className="w-full max-w-5xl bg-white p-8 rounded-2xl shadow-xl border">
 
           {/* Header Section */}
